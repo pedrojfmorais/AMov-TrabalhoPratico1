@@ -25,4 +25,5 @@
     <string name="user_update_successful">Utilizador atualizado</string>
     <string name="edit_user_profile">Editar perfil</string>
     <string name="language">Idioma</string>
+    <string name="welcome">Olá</string>
 </resources>

@@ -1,0 +1,8 @@
+package pt.isec.amov.a2018020733.trabalhopratico1
+
+const val STARTING_TIME_SECONDS = 60
+const val DECREASE_TIME_PER_LEVEL = 5
+
+const val MAX_NUMBER_USED_IN_EQUATIONS_START = 10
+const val INCREASE_NUMBER_USED_IN_EQUATIONS_PER_LEVEL = 5
+

@@ -90,7 +90,7 @@ class Login : AppCompatActivity() {
     fun showUser(user: FirebaseUser? = auth.currentUser) {
         val str = when (user) {
             null -> getString(R.string.errorLogin)
-            else -> "Welcome ${auth.currentUser!!.email}"
+            else -> getString(R.string.welcome) + " " + auth.currentUser!!.email
         }
         Toast.makeText(applicationContext, str, Toast.LENGTH_SHORT).show()
     }
