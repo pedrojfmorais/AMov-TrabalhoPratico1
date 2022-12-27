@@ -1,16 +1,10 @@
 package pt.isec.amov.a2018020733.trabalhopratico1
 
 import android.Manifest
-import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
-import android.graphics.BitmapFactory
-import android.graphics.drawable.BitmapDrawable
-import android.net.Uri
 import android.os.Bundle
 import android.util.Log
-import android.view.View
-import android.widget.ImageView
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
@@ -25,9 +19,6 @@ import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.FirebaseStorage
 import pt.isec.amov.a2018020733.trabalhopratico1.databinding.RegisterBinding
 import java.io.File
-import java.io.FileOutputStream
-import kotlin.math.max
-import kotlin.math.min
 
 class RegisterActivity : AppCompatActivity() {
 
