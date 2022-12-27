@@ -1,3 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">TrabalhoPratico1</string>
+    <string name="app_name">Math Champion</string>
+    <string name="sua_palavra_passe">Your password</string>
+    <string name="password">Password</string>
+    <string name="logotipo_jogo">Game Logo</string>
+    <string name="insira_o_seu_email">Insert your email</string>
+    <string name="entrar_com_o_google">Login with Google</string>
+    <string name="entrar">Login</string>
+    <string name="email">Email</string>
+    <string name="criar_conta">Create Account</string>
+    <string name="confirmar_password">Confirm Password</string>
+    <string name="take_photo">Change Photo</string>
+    <string name="errorDiferentPasswords">Password dont match!</string>
+    <string name="errorCreatingUser">Error creating user</string>
+    <string name="userRegisteredSuccessfully">User registered successfully</string>
+    <string name="passwordLength">Password length should be 6 or more</string>
+    <string name="errorLogin">Email or password incorrect</string>
+    <string name="edit_account">Edit Account</string>
+    <string name="logout">Logout</string>
+    <string name="logout_successful">Goodbye</string>
+    <string name="error_logging_out">Error logging out</string>
+    <string name="edit_user_title">Edit User</string>
+    <string name="error_edit_user">Error updating user</string>
+    <string name="user_update_successful">User updated successfully</string>
+    <string name="edit_user_profile">Edit profile</string>
+    <string name="language">Language</string>
 </resources>

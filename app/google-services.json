@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "1059489057243",
+    "project_id": "amov-trabalhopratico1",
+    "storage_bucket": "amov-trabalhopratico1.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1059489057243:android:14d52b2796d174fe6e3ffe",
+        "android_client_info": {
+          "package_name": "pt.isec.amov.a2018020733.trabalhopratico1"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1059489057243-a51j6n91sa3g9rgj1jlihdqn7evc39ub.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "pt.isec.amov.a2018020733.trabalhopratico1",
+            "certificate_hash": "1c9a2658ee7fe228a784f11cc38d75fc2062c717"
+          }
+        },
+        {
+          "client_id": "1059489057243-tqhoijipllmvfc4bkv3bh4l93tlv83k5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCVCcxYP3nt70jF7PalykVmow_FTXhZtx4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1059489057243-tqhoijipllmvfc4bkv3bh4l93tlv83k5.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

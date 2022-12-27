@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Campeão das Matemáticas</string>
+    <string name="logotipo_jogo">Logotipo Jogo</string>
+    <string name="email">Email</string>
+    <string name="insira_o_seu_email">Insira o seu email</string>
+    <string name="password">Palavra Chave</string>
+    <string name="sua_palavra_passe">Sua palavra passe</string>
+    <string name="entrar">Entrar</string>
+    <string name="criar_conta">Criar Conta</string>
+    <string name="entrar_com_o_google">Entrar com o Google</string>
+    <string name="confirmar_password">Confirmar Palavra Chave</string>
+    <string name="take_photo">Alterar Foto</string>
+    <string name="errorDiferentPasswords">As palavras chaves são diferentes</string>
+    <string name="errorCreatingUser">Erro a registar o utilizador</string>
+    <string name="userRegisteredSuccessfully">Utilizador registado com sucesso</string>
+    <string name="passwordLength">A password tem de ter 6 caracteres ou mais</string>
+    <string name="errorLogin">Email ou palavra chave incorretos</string>
+    <string name="edit_account">Editar dados</string>
+    <string name="logout">Sair</string>
+    <string name="logout_successful">Adeus</string>
+    <string name="error_logging_out">Erro a fazer logout</string>
+    <string name="edit_user_title">Atualizar Utilizador</string>
+    <string name="error_edit_user">Erro a atualizar utilizador</string>
+    <string name="user_update_successful">Utilizador atualizado</string>
+    <string name="edit_user_profile">Editar perfil</string>
+    <string name="language">Idioma</string>
+</resources>

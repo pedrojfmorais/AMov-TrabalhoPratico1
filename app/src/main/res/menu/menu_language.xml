@@ -1,0 +1,11 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="pt.isec.amov.a2018020733.trabalhopratico1.MainActivity">
+    <item
+        android:id="@+id/miLanguage"
+        android:title="@string/language"
+        android:icon="@android:drawable/ic_menu_compass"
+        app:showAsAction="always"/>
+
+</menu>
