@@ -26,4 +26,6 @@
     <string name="edit_user_profile">Editar perfil</string>
     <string name="language">Idioma</string>
     <string name="welcome">Olá</string>
+    <string name="novo_jogo_singleplayer">Novo Jogo - 1 Jogador</string>
+    <string name="singleplayerTitle">1 Jogador</string>
 </resources>

@@ -1,4 +1,4 @@
-package pt.isec.amov.a2018020733.trabalhopratico1
+package pt.isec.amov.a2018020733.trabalhopratico1.models
 
 
 class GameBoard(level: Int) {
@@ -52,7 +52,6 @@ class GameBoard(level: Int) {
     var gameBoard = Array(SIZE_GAME_BOARD) { CharArray(SIZE_GAME_BOARD) }
     val level: Int
 
-    //TODO:
     var maxValue: Double = 0.0
     var secondMaxValue: Double = 0.0
 
@@ -113,7 +112,7 @@ class GameBoard(level: Int) {
         }
     }
 
-    fun pointForResult(resultadoConta: Double) : Int{
+    fun pointsForResult(resultadoConta: Double) : Int{
         if(resultadoConta == maxValue)
             return 2
         if(resultadoConta == secondMaxValue)

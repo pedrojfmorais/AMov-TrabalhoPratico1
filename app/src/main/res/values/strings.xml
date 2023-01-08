@@ -26,4 +26,6 @@
     <string name="edit_user_profile">Edit profile</string>
     <string name="language">Language</string>
     <string name="welcome">Welcome</string>
+    <string name="novo_jogo_singleplayer">New Game - Singleplayer</string>
+    <string name="singleplayerTitle">Singleplayer</string>
 </resources>

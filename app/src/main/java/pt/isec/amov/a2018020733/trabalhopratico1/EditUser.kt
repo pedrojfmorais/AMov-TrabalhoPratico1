@@ -18,6 +18,8 @@ import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.FirebaseStorage
 import pt.isec.amov.a2018020733.trabalhopratico1.databinding.EditUserBinding
+import pt.isec.amov.a2018020733.trabalhopratico1.models.getTempFilename
+import pt.isec.amov.a2018020733.trabalhopratico1.models.setPic
 import java.io.File
 
 class EditUser : AppCompatActivity() {

@@ -1,4 +1,4 @@
-package pt.isec.amov.a2018020733.trabalhopratico1
+package pt.isec.amov.a2018020733.trabalhopratico1.models
 
 import android.content.Context
 import android.graphics.BitmapFactory

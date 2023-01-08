@@ -23,6 +23,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var auth: FirebaseAuth
     private lateinit var googleSignInClient: GoogleSignInClient
 
+    lateinit var clickado : String
 
     override fun onCreate(savedInstanceState: Bundle?) {
 
@@ -39,6 +40,11 @@ class MainActivity : AppCompatActivity() {
 
         binding.btnLogout.setOnClickListener {
             signOut()
+        }
+
+        binding.btnSingleplayer.setOnClickListener{
+            val intent = Intent(this, Singleplayer::class.java)
+            startActivity(intent)
         }
 
         auth = Firebase.auth

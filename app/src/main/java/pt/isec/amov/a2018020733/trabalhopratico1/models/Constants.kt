@@ -1,4 +1,4 @@
-package pt.isec.amov.a2018020733.trabalhopratico1
+package pt.isec.amov.a2018020733.trabalhopratico1.models
 
 const val SIZE_GAME_BOARD = 5
 
