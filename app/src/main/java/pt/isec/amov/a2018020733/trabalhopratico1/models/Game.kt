@@ -72,8 +72,8 @@ class Game {
         points += pointsReceived
     }
 
-    fun getCurrentEquationBoard(): ArrayList<ArrayList<String>> {
-        return gameLevels[currentLevel - 1][currentEquation].gameBoard
+    fun getCurrentBoard(): GameBoard{
+        return gameLevels[currentLevel - 1][currentEquation]
     }
 
     fun getPoints(): Int {

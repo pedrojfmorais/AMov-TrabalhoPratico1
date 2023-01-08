@@ -56,8 +56,11 @@ class GameBoard(level: Int) {
 
     var maxValue: Double = 0.0
     var maxValueFound: Boolean = false
+    lateinit var maxValuePosition: Pair<Int, Int> // direção, indice
+
     var secondMaxValue: Double = 0.0
     var secondMaxValueFound: Boolean = false
+    lateinit var secondMaxValuePosition: Pair<Int, Int>
 
     init {
 
@@ -92,17 +95,25 @@ class GameBoard(level: Int) {
                     gameBoard[i][j] = " "
             }
         //Calcula linhas
+        maxValuePosition = Pair(0, 0)
+        secondMaxValuePosition = Pair(0, 0)
         for (i in gameBoard.indices) {
             if (i % 2 == 0) {
-                Log.i("TAG", "asd3.2: ")
                 val temp = calculateValueOperation(gameBoard[i].toTypedArray())
-                Log.i("TAG", "asd3.8: ")
+
+                if (temp > secondMaxValue) {
+                    secondMaxValue = temp
+                    secondMaxValuePosition = Pair(DIRECTION_HORIZONTAL, i)
+                }
+
                 if (temp > maxValue) {
                     secondMaxValue = maxValue
                     maxValue = temp
+
+                    secondMaxValuePosition = Pair(maxValuePosition.first, maxValuePosition.second)
+                    maxValuePosition = Pair(DIRECTION_HORIZONTAL, i)
                 }
             }
-
         }
 
         //Calcula Colunas
@@ -117,9 +128,18 @@ class GameBoard(level: Int) {
             }
             if (j % 2 == 0) {
                 val temp = calculateValueOperation(column.toTypedArray())
+
+                if (temp > secondMaxValue) {
+                    secondMaxValue = temp
+                    secondMaxValuePosition = Pair(DIRECTION_VERTICAL, j)
+                }
+
                 if (temp > maxValue) {
                     secondMaxValue = maxValue
                     maxValue = temp
+
+                    secondMaxValuePosition = Pair(maxValuePosition.first, maxValuePosition.second)
+                    maxValuePosition = Pair(DIRECTION_VERTICAL, j)
                 }
             }
         }

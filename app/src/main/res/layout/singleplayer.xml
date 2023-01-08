@@ -18,7 +18,9 @@
             <LinearLayout
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="1">
+                android:layout_weight="1"
+                android:textStyle="bold"
+                android:textSize="24sp">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -35,7 +37,9 @@
             <LinearLayout
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="1">
+                android:layout_weight="1"
+                android:textStyle="bold"
+                android:textSize="24sp">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -52,7 +56,9 @@
             <LinearLayout
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="1">
+                android:layout_weight="1"
+                android:textStyle="bold"
+                android:textSize="24sp">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -76,7 +82,9 @@
             <LinearLayout
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="1">
+                android:layout_weight="1"
+                android:textStyle="bold"
+                android:textSize="24sp">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -94,6 +102,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:textStyle="bold"
+                android:textSize="24sp"
                 android:gravity="end">
 
                 <TextView
@@ -129,6 +139,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:textStyle="bold"
+                android:textSize="24sp"
                 android:text="0 0"
                 android:textAlignment="center" />
 
@@ -137,6 +149,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:textStyle="bold"
+                android:textSize="24sp"
                 android:text="0 1"
                 android:textAlignment="center" />
 
@@ -145,6 +159,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:textStyle="bold"
+                android:textSize="24sp"
                 android:text="0 2"
                 android:textAlignment="center" />
 
@@ -153,6 +169,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:textStyle="bold"
+                android:textSize="24sp"
                 android:text="0 3"
                 android:textAlignment="center" />
 
@@ -161,6 +179,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:textStyle="bold"
+                android:textSize="24sp"
                 android:text="0 4"
                 android:textAlignment="center" />
         </LinearLayout>
@@ -176,6 +196,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:textStyle="bold"
+                android:textSize="24sp"
                 android:text="1 0"
                 android:textAlignment="center" />
 
@@ -184,6 +206,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:textStyle="bold"
+                android:textSize="24sp"
                 android:text="1 1"
                 android:textAlignment="center" />
 
@@ -192,6 +216,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:textStyle="bold"
+                android:textSize="24sp"
                 android:text="1 2"
                 android:textAlignment="center" />
 
@@ -200,6 +226,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:textStyle="bold"
+                android:textSize="24sp"
                 android:text="1 3"
                 android:textAlignment="center" />
 
@@ -208,6 +236,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:textStyle="bold"
+                android:textSize="24sp"
                 android:text="1 4"
                 android:textAlignment="center" />
         </LinearLayout>
@@ -223,6 +253,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:textStyle="bold"
+                android:textSize="24sp"
                 android:text="2 0"
                 android:textAlignment="center" />
 
@@ -231,6 +263,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:textStyle="bold"
+                android:textSize="24sp"
                 android:text="2 1"
                 android:textAlignment="center" />
 
@@ -239,6 +273,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:textStyle="bold"
+                android:textSize="24sp"
                 android:text="2 2"
                 android:textAlignment="center" />
 
@@ -247,6 +283,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:textStyle="bold"
+                android:textSize="24sp"
                 android:text="2 3"
                 android:textAlignment="center" />
 
@@ -255,6 +293,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:textStyle="bold"
+                android:textSize="24sp"
                 android:text="2 4"
                 android:textAlignment="center" />
         </LinearLayout>
@@ -270,6 +310,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:textStyle="bold"
+                android:textSize="24sp"
                 android:text="3 0"
                 android:textAlignment="center" />
 
@@ -278,6 +320,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:textStyle="bold"
+                android:textSize="24sp"
                 android:text="3 1"
                 android:textAlignment="center" />
 
@@ -286,6 +330,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:textStyle="bold"
+                android:textSize="24sp"
                 android:text="3 2"
                 android:textAlignment="center" />
 
@@ -294,6 +340,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:textStyle="bold"
+                android:textSize="24sp"
                 android:text="3 3"
                 android:textAlignment="center" />
 
@@ -302,6 +350,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:textStyle="bold"
+                android:textSize="24sp"
                 android:text="3 4"
                 android:textAlignment="center" />
         </LinearLayout>
@@ -317,6 +367,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:textStyle="bold"
+                android:textSize="24sp"
                 android:text="4 0"
                 android:textAlignment="center" />
 
@@ -325,6 +377,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:textStyle="bold"
+                android:textSize="24sp"
                 android:text="4 1"
                 android:textAlignment="center" />
 
@@ -333,6 +387,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:textStyle="bold"
+                android:textSize="24sp"
                 android:text="4 2"
                 android:textAlignment="center" />
 
@@ -341,6 +397,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:textStyle="bold"
+                android:textSize="24sp"
                 android:text="4 3"
                 android:textAlignment="center" />
 
@@ -349,6 +407,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:textStyle="bold"
+                android:textSize="24sp"
                 android:text="4 4"
                 android:textAlignment="center" />
         </LinearLayout>

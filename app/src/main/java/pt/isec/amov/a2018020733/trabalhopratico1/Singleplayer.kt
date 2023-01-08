@@ -1,10 +1,12 @@
 package pt.isec.amov.a2018020733.trabalhopratico1
 
+import android.graphics.Color
 import android.graphics.Rect
 import android.os.Bundle
 import android.view.GestureDetector
 import android.view.MotionEvent
 import android.widget.TextView
+import androidx.annotation.ColorInt
 import androidx.appcompat.app.ActionBar
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
@@ -56,7 +58,8 @@ class Singleplayer : AppCompatActivity(), GestureDetector.OnGestureListener {
     }
 
     private fun updateTextViews() {
-        val currentEquationBoard = game.getCurrentEquationBoard()
+        val gameBoard = game.getCurrentBoard()
+        val currentEquationBoard = gameBoard.gameBoard
 
         binding.cell00.text = currentEquationBoard[0][0]
         binding.cell01.text = currentEquationBoard[0][1]
@@ -105,11 +108,97 @@ class Singleplayer : AppCompatActivity(), GestureDetector.OnGestureListener {
         else
             binding.btnNext.text = getString(R.string.next)
 
+        //CORES
+
+        //RESETAR
+        aplicaCor(DIRECTION_HORIZONTAL, 0, Color.BLACK)
+        aplicaCor(DIRECTION_HORIZONTAL, 2, Color.BLACK)
+        aplicaCor(DIRECTION_HORIZONTAL, 4, Color.BLACK)
+
+        aplicaCor(DIRECTION_VERTICAL, 0, Color.BLACK)
+        aplicaCor(DIRECTION_VERTICAL, 2, Color.BLACK)
+        aplicaCor(DIRECTION_VERTICAL, 4, Color.BLACK)
+
+        // APLICAR SE FOI ENCONTRADO
+        if (gameBoard.secondMaxValueFound)
+            aplicaCor(
+                gameBoard.secondMaxValuePosition.first,
+                gameBoard.secondMaxValuePosition.second,
+                Color.rgb(255, 191, 0)
+            )
+
+        if (gameBoard.maxValueFound)
+            aplicaCor(
+                gameBoard.maxValuePosition.first,
+                gameBoard.maxValuePosition.second,
+                Color.GREEN
+            )
+    }
+
+    private fun aplicaCor(direcao: Int, indice: Int, color: Int) {
+
+        when (indice) {
+            0 -> {
+                when (direcao) {
+                    DIRECTION_HORIZONTAL -> {
+                        binding.cell00.setTextColor(color)
+                        binding.cell01.setTextColor(color)
+                        binding.cell02.setTextColor(color)
+                        binding.cell03.setTextColor(color)
+                        binding.cell04.setTextColor(color)
+                    }
+                    DIRECTION_VERTICAL -> {
+                        binding.cell00.setTextColor(color)
+                        binding.cell10.setTextColor(color)
+                        binding.cell20.setTextColor(color)
+                        binding.cell30.setTextColor(color)
+                        binding.cell40.setTextColor(color)
+                    }
+                }
+            }
+            2 -> {
+                when (direcao) {
+                    DIRECTION_HORIZONTAL -> {
+                        binding.cell20.setTextColor(color)
+                        binding.cell21.setTextColor(color)
+                        binding.cell22.setTextColor(color)
+                        binding.cell23.setTextColor(color)
+                        binding.cell24.setTextColor(color)
+                    }
+                    DIRECTION_VERTICAL -> {
+                        binding.cell02.setTextColor(color)
+                        binding.cell12.setTextColor(color)
+                        binding.cell22.setTextColor(color)
+                        binding.cell32.setTextColor(color)
+                        binding.cell42.setTextColor(color)
+                    }
+                }
+            }
+            4 -> {
+                when (direcao) {
+                    DIRECTION_HORIZONTAL -> {
+                        binding.cell40.setTextColor(color)
+                        binding.cell41.setTextColor(color)
+                        binding.cell42.setTextColor(color)
+                        binding.cell43.setTextColor(color)
+                        binding.cell44.setTextColor(color)
+                    }
+                    DIRECTION_VERTICAL -> {
+                        binding.cell04.setTextColor(color)
+                        binding.cell14.setTextColor(color)
+                        binding.cell24.setTextColor(color)
+                        binding.cell34.setTextColor(color)
+                        binding.cell44.setTextColor(color)
+                    }
+                }
+            }
+        }
     }
 
     private fun verificaConta(direction: Int, indice: Int) {
         game.verifyEquationSelected(direction, indice)
         binding.tvPoints.text = game.getPoints().toString()
+        updateTextViews()
     }
 
     private fun startTimeLeft() {
