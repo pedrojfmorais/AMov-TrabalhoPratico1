@@ -28,4 +28,12 @@
     <string name="welcome">Olá</string>
     <string name="novo_jogo_singleplayer">Novo Jogo - 1 Jogador</string>
     <string name="singleplayerTitle">1 Jogador</string>
+    <string name="points">Pontuação:</string>
+    <string name="time_left">Tempo restante:</string>
+    <string name="previous">Anterior</string>
+    <string name="next">Próximo</string>
+    <string name="level">Nível:</string>
+    <string name="equation">Equação:</string>
+    <string name="finishLevel">Terminal nível</string>
+    <string name="time_played">Tempo Jogado:</string>
 </resources>

@@ -28,4 +28,12 @@
     <string name="welcome">Welcome</string>
     <string name="novo_jogo_singleplayer">New Game - Singleplayer</string>
     <string name="singleplayerTitle">Singleplayer</string>
+    <string name="points">Points:</string>
+    <string name="time_left">Time left:</string>
+    <string name="previous">Previous</string>
+    <string name="next">Next</string>
+    <string name="level">Level:</string>
+    <string name="equation">Equation:</string>
+    <string name="finishLevel">Finish Level</string>
+    <string name="time_played">Time Played:</string>
 </resources>

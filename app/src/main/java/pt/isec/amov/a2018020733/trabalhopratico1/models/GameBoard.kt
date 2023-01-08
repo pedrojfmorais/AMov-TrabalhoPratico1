@@ -1,37 +1,39 @@
 package pt.isec.amov.a2018020733.trabalhopratico1.models
 
+import android.util.Log
+
 
 class GameBoard(level: Int) {
 
     companion object {
 
-        private fun operatorFromChar(charOperator: Char): (Double, Double) -> Double {
-            return when (charOperator) {
-                '+' -> { a, b -> a + b }
-                '-' -> { a, b -> a - b }
-                '/' -> { a, b -> a / b }
-                'x' -> { a, b -> a * b }
+        private fun operatorFromString(stringOperator: String): (Double, Double) -> Double {
+            return when (stringOperator) {
+                "+" -> { a, b -> a + b }
+                "-" -> { a, b -> a - b }
+                "/" -> { a, b -> a / b }
+                "x" -> { a, b -> a * b }
                 else -> throw Exception("That's not a supported operator")
             }
         }
 
-        fun calculateValueOperation(operation: Array<Char>): Double {
+        fun calculateValueOperation(operation: Array<String>): Double {
 
             var result: Double
             val mathPriority = ArrayList<String>()
             var flagSkip = false
 
             for (i in operation.indices) {
-                if (operation[i] == 'x' || operation[i] == '/') {
-                    mathPriority[mathPriority.size - 1] = operatorFromChar(operation[i])
+                if (operation[i] == "x" || operation[i] == "/") {
+                    mathPriority[mathPriority.size - 1] = operatorFromString(operation[i])
                         .invoke(
                             mathPriority[mathPriority.size - 1].toDouble(),
-                            operation[i + 1].digitToInt().toDouble()
+                            operation[i + 1].toDouble()
                         ).toString()
-                    flagSkip = true;
+                    flagSkip = true
                 } else {
                     if (!flagSkip)
-                        mathPriority.add(operation[i].toString())
+                        mathPriority.add(operation[i])
                     flagSkip = false
                 }
             }
@@ -39,7 +41,7 @@ class GameBoard(level: Int) {
             result = mathPriority[0].toDouble()
             for (i in mathPriority.indices)
                 if (mathPriority[i] == "+" || mathPriority[i] == "-")
-                    result = operatorFromChar(mathPriority[i][0])
+                    result = operatorFromString(mathPriority[i])
                         .invoke(
                             result,
                             mathPriority[i + 1].toDouble()
@@ -49,13 +51,23 @@ class GameBoard(level: Int) {
         }
     }
 
-    var gameBoard = Array(SIZE_GAME_BOARD) { CharArray(SIZE_GAME_BOARD) }
+    var gameBoard = ArrayList<ArrayList<String>>()
     val level: Int
 
     var maxValue: Double = 0.0
+    var maxValueFound: Boolean = false
     var secondMaxValue: Double = 0.0
+    var secondMaxValueFound: Boolean = false
 
     init {
+
+        for (i in 1..SIZE_GAME_BOARD) {
+            val linha = ArrayList<String>()
+            for (j in 1..SIZE_GAME_BOARD)
+                linha.add("")
+            gameBoard.add(linha)
+        }
+
         this.level = level
 
         val maxNumber = if (level < 4)
@@ -65,7 +77,7 @@ class GameBoard(level: Int) {
         else
             MAX_NUMBER_USED_IN_EQUATIONS_START[2]
 
-        val operators = if (level < 16)
+        val operators = if (level < 4)
             OPERATORS_USED_PER_LEVEL[(level % 4) - 1]
         else
             OPERATORS_USED_PER_LEVEL[3]
@@ -73,17 +85,18 @@ class GameBoard(level: Int) {
         for (i in gameBoard.indices)
             for (j in gameBoard[i].indices) {
                 if (i % 2 == 0 && j % 2 == 0)
-                    gameBoard[i][j] = Character.forDigit((1..maxNumber).random(), 10)
+                    gameBoard[i][j] = (1..maxNumber).random().toString()
                 else if ((i + j) % 2 == 1)
                     gameBoard[i][j] = operators[(operators.indices).random()]
                 else
-                    gameBoard[i][j] = ' '
+                    gameBoard[i][j] = " "
             }
-
         //Calcula linhas
         for (i in gameBoard.indices) {
             if (i % 2 == 0) {
+                Log.i("TAG", "asd3.2: ")
                 val temp = calculateValueOperation(gameBoard[i].toTypedArray())
+                Log.i("TAG", "asd3.8: ")
                 if (temp > maxValue) {
                     secondMaxValue = maxValue
                     maxValue = temp
@@ -93,7 +106,7 @@ class GameBoard(level: Int) {
         }
 
         //Calcula Colunas
-        val column = ArrayList<Char>()
+        val column = ArrayList<String>()
 
         for (j in gameBoard[0].indices) {
             column.clear()
@@ -112,11 +125,15 @@ class GameBoard(level: Int) {
         }
     }
 
-    fun pointsForResult(resultadoConta: Double) : Int{
-        if(resultadoConta == maxValue)
+    fun pointsForResult(resultadoConta: Double): Int {
+        if (resultadoConta == maxValue && !maxValueFound) {
+            maxValueFound = true
             return 2
-        if(resultadoConta == secondMaxValue)
+        }
+        if (resultadoConta == secondMaxValue && !secondMaxValueFound) {
+            secondMaxValueFound = true
             return 1
+        }
         return 0
     }
 }
