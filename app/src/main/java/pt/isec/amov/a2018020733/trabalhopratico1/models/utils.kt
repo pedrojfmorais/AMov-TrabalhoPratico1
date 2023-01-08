@@ -29,8 +29,8 @@ fun setPic(view: View, path: String) {
     bmpOptions.inSampleSize = scale
     bmpOptions.inJustDecodeBounds = false
     val bitmap = BitmapFactory.decodeFile(path, bmpOptions)
-    when {
-        view is ImageView -> (view as ImageView).setImageBitmap(bitmap)
+    when (view) {
+        is ImageView -> view.setImageBitmap(bitmap)
 //else -> view.background = bitmap.toDrawable(view.resources)
         else -> view.background = BitmapDrawable(view.resources,bitmap)
     }

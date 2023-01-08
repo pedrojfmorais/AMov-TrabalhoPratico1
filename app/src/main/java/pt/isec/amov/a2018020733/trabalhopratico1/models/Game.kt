@@ -88,11 +88,11 @@ class Game {
         timeLeftLevel--
     }
 
-    fun wrongAnswer() {
+    private fun wrongAnswer() {
         timeLeftLevel -= REMOVED_TIME_WRONG_ANSWER
     }
 
-    fun correctAnswer() {
+    private fun correctAnswer() {
         timeLeftLevel += ADDED_TIME_CORRECT_ANSWER
     }
 

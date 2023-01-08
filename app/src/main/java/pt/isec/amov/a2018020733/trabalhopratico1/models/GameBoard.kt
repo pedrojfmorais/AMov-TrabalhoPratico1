@@ -1,7 +1,5 @@
 package pt.isec.amov.a2018020733.trabalhopratico1.models
 
-import android.util.Log
-
 
 class GameBoard(level: Int) {
 
@@ -56,11 +54,11 @@ class GameBoard(level: Int) {
 
     var maxValue: Double = 0.0
     var maxValueFound: Boolean = false
-    lateinit var maxValuePosition: Pair<Int, Int> // direção, indice
+    var maxValuePosition: Pair<Int, Int> // direção, indice
 
     var secondMaxValue: Double = 0.0
     var secondMaxValueFound: Boolean = false
-    lateinit var secondMaxValuePosition: Pair<Int, Int>
+    var secondMaxValuePosition: Pair<Int, Int>
 
     init {
 
