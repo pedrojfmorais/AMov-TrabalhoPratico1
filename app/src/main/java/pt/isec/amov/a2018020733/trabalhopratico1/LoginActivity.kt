@@ -46,6 +46,11 @@ class LoginActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
+        binding.btnCredits.setOnClickListener {
+            val intent = Intent(this, CreditsActivity::class.java)
+            startActivity(intent)
+        }
+
         binding.btnAccountGoogle.setOnClickListener {
             signInWithGoogle.launch(googleSignInClient.signInIntent)
         }
@@ -77,12 +82,12 @@ class LoginActivity : AppCompatActivity() {
             return
 
         auth.signInWithEmailAndPassword(strEmail, strPass)
-            .addOnSuccessListener(this) { result ->
+            .addOnSuccessListener(this) {
                 showUser(auth.currentUser)
                 val intent = Intent(this, MainActivity::class.java)
                 startActivity(intent)
             }
-            .addOnFailureListener(this) { e ->
+            .addOnFailureListener(this) {
                 showUser(null)
             }
     }

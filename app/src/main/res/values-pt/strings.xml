@@ -26,7 +26,7 @@
     <string name="edit_user_profile">Editar perfil</string>
     <string name="language">Idioma</string>
     <string name="welcome">Olá</string>
-    <string name="novo_jogo_singleplayer">Novo Jogo - 1 Jogador</string>
+    <string name="novo_jogo_singleplayer">Novo Jogo – 1 Jogador</string>
     <string name="singleplayerTitle">1 Jogador</string>
     <string name="points">Pontuação:</string>
     <string name="time_left">Tempo restante:</string>
@@ -39,6 +39,10 @@
     <string name="nextLevel">Próximo Nível</string>
     <string name="paused">Pausado</string>
     <string name="top_5_players">Top 5 jogadores</string>
-    <string name="top5_1_player">Top 5 - 1 Jogador</string>
+    <string name="top5_1_player">Top 5 – 1 Jogador</string>
     <string name="user">Utilizador:</string>
+    <string name="authors">Marco Coelho – 2018012765\nPedro Morais – 2018020733</string>
+    <string name="subject">Arquiteturas Móveis\n2022/2023</string>
+    <string name="logotipo_isec">Logotipo ISEC</string>
+    <string name="credits">Créditos</string>
 </resources>

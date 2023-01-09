@@ -41,4 +41,8 @@
     <string name="top_5_players">Top 5 players</string>
     <string name="top5_1_player">Top 5 - 1 Player</string>
     <string name="user">"User: "</string>
+    <string name="authors">Marco Coelho - 2018012765\nPedro Morais - 2018020733</string>
+    <string name="subject">Mobile Architectures\n2022/2023</string>
+    <string name="logotipo_isec">Logotipo ISEC</string>
+    <string name="credits">Credits</string>
 </resources>
