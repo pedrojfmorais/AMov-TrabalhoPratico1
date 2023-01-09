@@ -64,6 +64,11 @@ class SingleplayerActivity : AppCompatActivity(), GestureDetector.OnGestureListe
         }
     }
 
+    override fun onPause() {
+        super.onPause()
+        timer.cancel()
+    }
+
      override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
          // Collect data from the intent and use it
          game.nextLevel()
