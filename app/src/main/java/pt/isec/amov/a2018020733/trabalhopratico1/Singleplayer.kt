@@ -1,5 +1,6 @@
 package pt.isec.amov.a2018020733.trabalhopratico1
 
+import android.content.Intent
 import android.graphics.Color
 import android.graphics.Rect
 import android.os.Bundle
@@ -8,13 +9,9 @@ import android.view.MotionEvent
 import android.widget.TextView
 import androidx.appcompat.app.ActionBar
 import androidx.appcompat.app.AppCompatActivity
-import com.google.android.gms.auth.api.signin.GoogleSignInClient
-import com.google.firebase.auth.FirebaseAuth
 import pt.isec.amov.a2018020733.trabalhopratico1.databinding.SingleplayerBinding
-import pt.isec.amov.a2018020733.trabalhopratico1.models.DIRECTION_HORIZONTAL
-import pt.isec.amov.a2018020733.trabalhopratico1.models.DIRECTION_VERTICAL
-import pt.isec.amov.a2018020733.trabalhopratico1.models.Game
-import pt.isec.amov.a2018020733.trabalhopratico1.models.NUMBER_EQUATIONS_LEVEL
+import pt.isec.amov.a2018020733.trabalhopratico1.models.*
+import java.util.*
 import kotlin.concurrent.fixedRateTimer
 import kotlin.math.abs
 
@@ -22,15 +19,16 @@ import kotlin.math.abs
 class Singleplayer : AppCompatActivity(), GestureDetector.OnGestureListener {
 
     lateinit var binding: SingleplayerBinding
-    var game = Game()
-
-    private lateinit var auth: FirebaseAuth
-    private lateinit var googleSignInClient: GoogleSignInClient
+    lateinit var game : Game
+    lateinit var timer : Timer
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = SingleplayerBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        //TODO: deprecated
+        game = (intent.getSerializableExtra(EXTRA_GAME) as? Game)!!
 
         if (supportActionBar != null) {
             val actionBar: ActionBar? = supportActionBar
@@ -43,8 +41,11 @@ class Singleplayer : AppCompatActivity(), GestureDetector.OnGestureListener {
         startTimeLeft()
 
         binding.btnNext.setOnClickListener {
-            if (game.getCurrentEquationNumber() == NUMBER_EQUATIONS_LEVEL)
-                game.nextLevel()
+            if (game.getCurrentEquationNumber() == NUMBER_EQUATIONS_LEVEL) {
+                val intent = Intent(this, LevelTransition::class.java)
+                intent.putExtra(EXTRA_GAME, game)
+                startActivity(intent)
+            }
             else
                 game.nextEquation()
 
@@ -201,7 +202,7 @@ class Singleplayer : AppCompatActivity(), GestureDetector.OnGestureListener {
     }
 
     private fun startTimeLeft() {
-        fixedRateTimer("timeLeftCounter", false, 0L, 1 * 1000) {
+        timer = fixedRateTimer("timeLeftCounter", false, 0L, 1 * 1000) {
             this@Singleplayer.runOnUiThread {
 
                 game.decrementTimeLeft()
@@ -210,6 +211,10 @@ class Singleplayer : AppCompatActivity(), GestureDetector.OnGestureListener {
                 binding.tvTimeLeft.text = game.getTimeLeftLevel().toString()
                 binding.tvTimePlayed.text = game.getTimePlayed().toString()
             }
+
+            //Parar a cena
+            if(game.getTimeLeftLevel() <= 0)
+                cancel()
         }
     }
 

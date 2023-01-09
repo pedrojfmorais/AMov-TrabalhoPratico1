@@ -1,10 +1,14 @@
 package pt.isec.amov.a2018020733.trabalhopratico1.models
 
+const val EXTRA_GAME = "GAME_DATA"
+
 const val DIRECTION_HORIZONTAL = 1
 const val DIRECTION_VERTICAL = 2
 
 const val SIZE_GAME_BOARD = 5
 const val NUMBER_EQUATIONS_LEVEL = 5
+
+const val TRANSITION_TIME_SECONDS = 5
 
 const val STARTING_TIME_SECONDS = 60
 const val DECREASE_TIME_PER_LEVEL = 10

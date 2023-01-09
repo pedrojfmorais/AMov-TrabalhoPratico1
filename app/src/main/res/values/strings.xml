@@ -36,4 +36,6 @@
     <string name="equation">Equation:</string>
     <string name="finishLevel">Finish Level</string>
     <string name="time_played">Time Played:</string>
+    <string name="nextLevel">Next Level</string>
+    <string name="paused">Paused</string>
 </resources>

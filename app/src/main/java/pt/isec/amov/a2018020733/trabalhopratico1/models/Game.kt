@@ -1,6 +1,8 @@
 package pt.isec.amov.a2018020733.trabalhopratico1.models
 
-class Game {
+import java.io.Serializable
+
+class Game : Serializable {
 
     private var gameLevels: ArrayList<List<GameBoard>> = ArrayList()
     private var currentLevel: Int = 1

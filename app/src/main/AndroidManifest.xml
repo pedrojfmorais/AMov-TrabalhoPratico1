@@ -68,6 +68,15 @@
                 android:value=".MainActivity" />
         </activity>
 
+        <activity
+            android:name=".LevelTransition"
+            android:exported="false"
+            android:parentActivityName=".MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
+        </activity>
+
         <provider
             android:name="androidx.core.content.FileProvider"
             android:authorities="pt.isec.amov.a2018020733.trabalhopratico1.android.fileprovider"

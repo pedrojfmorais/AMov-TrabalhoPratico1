@@ -1,7 +1,9 @@
 package pt.isec.amov.a2018020733.trabalhopratico1.models
 
+import java.io.Serializable
 
-class GameBoard(level: Int) {
+
+class GameBoard(level: Int) : Serializable {
 
     companion object {
 

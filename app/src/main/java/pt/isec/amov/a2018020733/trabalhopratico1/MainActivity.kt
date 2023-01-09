@@ -15,6 +15,8 @@ import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 import pt.isec.amov.a2018020733.trabalhopratico1.databinding.MainActivityBinding
+import pt.isec.amov.a2018020733.trabalhopratico1.models.EXTRA_GAME
+import pt.isec.amov.a2018020733.trabalhopratico1.models.Game
 
 class MainActivity : AppCompatActivity() {
 
@@ -22,8 +24,6 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var auth: FirebaseAuth
     private lateinit var googleSignInClient: GoogleSignInClient
-
-    lateinit var clickado : String
 
     override fun onCreate(savedInstanceState: Bundle?) {
 
@@ -44,6 +44,7 @@ class MainActivity : AppCompatActivity() {
 
         binding.btnSingleplayer.setOnClickListener{
             val intent = Intent(this, Singleplayer::class.java)
+            intent.putExtra(EXTRA_GAME, Game())
             startActivity(intent)
         }
 
