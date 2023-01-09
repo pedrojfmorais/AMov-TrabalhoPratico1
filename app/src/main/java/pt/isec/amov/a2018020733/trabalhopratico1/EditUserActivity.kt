@@ -63,11 +63,11 @@ class EditUserActivity : AppCompatActivity() {
         if (supportActionBar != null) {
             val actionBar: ActionBar? = supportActionBar
             if (actionBar != null) {
-                actionBar.title = getString(R.string.edit_user_title);
+                actionBar.title = getString(R.string.edit_user_title)
             }
         }
 
-        verify_permissions()
+        verifyPermissions()
         updatePreview()
         getImageFirebase()
     }
@@ -80,7 +80,7 @@ class EditUserActivity : AppCompatActivity() {
         permissionsGranted = grantResults.values.all { it }
     }
 
-    private fun verify_permissions() {
+    private fun verifyPermissions() {
 
         requestPermissionsLauncher.launch(
             arrayOf(

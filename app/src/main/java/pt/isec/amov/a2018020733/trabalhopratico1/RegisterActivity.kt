@@ -56,7 +56,7 @@ class RegisterActivity : AppCompatActivity() {
             createUserWithEmail()
         }
 
-        verify_permissions()
+        verifyPermissions()
         updatePreview()
 
     }
@@ -69,7 +69,7 @@ class RegisterActivity : AppCompatActivity() {
         permissionsGranted = grantResults.values.all { it }
     }
 
-    private fun verify_permissions() {
+    private fun verifyPermissions() {
 
         requestPermissionsLauncher.launch(
             arrayOf(

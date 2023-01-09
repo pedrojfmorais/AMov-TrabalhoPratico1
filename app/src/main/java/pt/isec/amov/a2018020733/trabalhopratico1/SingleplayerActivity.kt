@@ -112,6 +112,7 @@ class SingleplayerActivity : AppCompatActivity(), GestureDetector.OnGestureListe
         }.addOnFailureListener { e ->
             Log.i("TAG", "updateDataInFirestoreTrans: ${e.message}")
         }
+        finish()
     }
 
     private fun updateTextViews() {
@@ -280,7 +281,6 @@ class SingleplayerActivity : AppCompatActivity(), GestureDetector.OnGestureListe
     override fun onBackPressed() {
         //TODO: confirmação sair
         acabarJogo()
-        super.onBackPressed()
     }
 
     // Gestos

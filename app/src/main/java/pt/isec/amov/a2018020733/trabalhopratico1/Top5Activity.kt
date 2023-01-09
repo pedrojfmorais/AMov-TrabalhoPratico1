@@ -5,7 +5,6 @@ import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
-import pt.isec.amov.a2018020733.trabalhopratico1.databinding.SingleplayerBinding
 import pt.isec.amov.a2018020733.trabalhopratico1.databinding.Top5Binding
 import pt.isec.amov.a2018020733.trabalhopratico1.models.COLLECTION_FIELD_POINTS
 import pt.isec.amov.a2018020733.trabalhopratico1.models.COLLECTION_FIELD_TIME_PLAYED
@@ -45,7 +44,7 @@ class Top5Activity : AppCompatActivity() {
                 }
                 val sortedList = allScores.sortedByDescending { it.second.first }
 
-                if (sortedList.size > 0)
+                if (sortedList.isNotEmpty())
                     binding.tvTop1.text =
                         getString(
                             R.string.user
