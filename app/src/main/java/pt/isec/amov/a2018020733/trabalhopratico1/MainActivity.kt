@@ -15,8 +15,6 @@ import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 import pt.isec.amov.a2018020733.trabalhopratico1.databinding.MainActivityBinding
-import pt.isec.amov.a2018020733.trabalhopratico1.models.EXTRA_GAME
-import pt.isec.amov.a2018020733.trabalhopratico1.models.Game
 
 class MainActivity : AppCompatActivity() {
 

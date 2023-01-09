@@ -1,6 +1,5 @@
 package pt.isec.amov.a2018020733.trabalhopratico1.models
 
-const val EXTRA_GAME = "GAME_DATA"
 const val COLLECTION_PATH = "TopScoresSingleplayer"
 const val COLLECTION_FIELD_POINTS = "points"
 const val COLLECTION_FIELD_TIME_PLAYED = "timePlayed"
