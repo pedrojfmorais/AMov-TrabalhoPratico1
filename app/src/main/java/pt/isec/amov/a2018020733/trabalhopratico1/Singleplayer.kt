@@ -43,8 +43,9 @@ class Singleplayer : AppCompatActivity(), GestureDetector.OnGestureListener {
         binding.btnNext.setOnClickListener {
             if (game.getCurrentEquationNumber() == NUMBER_EQUATIONS_LEVEL) {
                 val intent = Intent(this, LevelTransition::class.java)
-                intent.putExtra(EXTRA_GAME, game)
-                startActivity(intent)
+                startActivityForResult(intent, 1)
+
+                timer.cancel()
             }
             else
                 game.nextEquation()
@@ -55,6 +56,14 @@ class Singleplayer : AppCompatActivity(), GestureDetector.OnGestureListener {
             game.previousEquation()
             updateTextViews()
         }
+    }
+
+     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+         // Collect data from the intent and use it
+         game.nextLevel()
+         updateTextViews()
+         startTimeLeft()
+         super.onActivityResult(requestCode, resultCode, data)
     }
 
     private fun updateTextViews() {

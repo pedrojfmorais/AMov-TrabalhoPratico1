@@ -1,12 +1,9 @@
 package pt.isec.amov.a2018020733.trabalhopratico1
 
-import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.ActionBar
 import androidx.appcompat.app.AppCompatActivity
 import pt.isec.amov.a2018020733.trabalhopratico1.databinding.LevelTransitionBinding
-import pt.isec.amov.a2018020733.trabalhopratico1.models.EXTRA_GAME
-import pt.isec.amov.a2018020733.trabalhopratico1.models.Game
 import pt.isec.amov.a2018020733.trabalhopratico1.models.TRANSITION_TIME_SECONDS
 import java.util.*
 import kotlin.concurrent.fixedRateTimer
@@ -14,7 +11,6 @@ import kotlin.concurrent.fixedRateTimer
 class LevelTransition : AppCompatActivity() {
 
     lateinit var binding: LevelTransitionBinding
-    lateinit var game: Game
     lateinit var timer: Timer
     var flagPaused = false
     var timeLeftTransition = TRANSITION_TIME_SECONDS + 1
@@ -24,8 +20,6 @@ class LevelTransition : AppCompatActivity() {
         binding = LevelTransitionBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        //TODO: deprecated
-        game = (intent.getSerializableExtra(EXTRA_GAME) as? Game)!!
 
         if (supportActionBar != null) {
             val actionBar: ActionBar? = supportActionBar
@@ -62,9 +56,10 @@ class LevelTransition : AppCompatActivity() {
     }
 
     private fun passToNextLevel() {
-        game.nextLevel()
-        val intent = Intent(this, Singleplayer::class.java)
-        intent.putExtra(EXTRA_GAME, game)
-        startActivity(intent)
+        setResult(RESULT_OK, intent)
+        finish()
+    }
+
+    override fun onBackPressed() {
     }
 }
