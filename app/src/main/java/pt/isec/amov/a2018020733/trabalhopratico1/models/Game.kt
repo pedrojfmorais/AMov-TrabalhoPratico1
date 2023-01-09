@@ -1,8 +1,8 @@
 package pt.isec.amov.a2018020733.trabalhopratico1.models
 
-import java.io.Serializable
+import androidx.lifecycle.ViewModel
 
-class Game : Serializable {
+class Game : ViewModel() {
 
     private var gameLevels: ArrayList<List<GameBoard>> = ArrayList()
     private var currentLevel: Int = 1

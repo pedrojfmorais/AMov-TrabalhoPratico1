@@ -60,6 +60,16 @@ class LevelTransitionActivity : AppCompatActivity() {
         finish()
     }
 
+    override fun onPause() {
+        super.onPause()
+        flagPaused = true
+    }
+
+    override fun onResume() {
+        super.onResume()
+        flagPaused = false
+    }
+
     override fun onBackPressed() {
         //TODO
     }

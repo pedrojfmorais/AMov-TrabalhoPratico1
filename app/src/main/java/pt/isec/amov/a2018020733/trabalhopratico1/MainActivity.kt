@@ -44,7 +44,6 @@ class MainActivity : AppCompatActivity() {
 
         binding.btnSingleplayer.setOnClickListener{
             val intent = Intent(this, SingleplayerActivity::class.java)
-            intent.putExtra(EXTRA_GAME, Game())
             startActivity(intent)
         }
 

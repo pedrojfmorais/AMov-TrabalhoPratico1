@@ -8,6 +8,7 @@ import android.util.Log
 import android.view.GestureDetector
 import android.view.MotionEvent
 import android.widget.TextView
+import androidx.activity.viewModels
 import androidx.appcompat.app.ActionBar
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
@@ -24,7 +25,7 @@ import kotlin.math.abs
 class SingleplayerActivity : AppCompatActivity(), GestureDetector.OnGestureListener {
 
     lateinit var binding: SingleplayerBinding
-    private lateinit var game : Game
+    private val game : Game by viewModels()
     private lateinit var auth: FirebaseAuth
     lateinit var timer : Timer
 
@@ -32,9 +33,6 @@ class SingleplayerActivity : AppCompatActivity(), GestureDetector.OnGestureListe
         super.onCreate(savedInstanceState)
         binding = SingleplayerBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
-        //TODO: deprecated
-        game = (intent.getSerializableExtra(EXTRA_GAME) as? Game)!!
 
         if (supportActionBar != null) {
             val actionBar: ActionBar? = supportActionBar
@@ -44,7 +42,6 @@ class SingleplayerActivity : AppCompatActivity(), GestureDetector.OnGestureListe
             }
         }
         updateTextViews()
-        startTimeLeft()
 
         binding.btnNext.setOnClickListener {
             if (game.getCurrentEquationNumber() == NUMBER_EQUATIONS_LEVEL) {
@@ -69,11 +66,15 @@ class SingleplayerActivity : AppCompatActivity(), GestureDetector.OnGestureListe
         timer.cancel()
     }
 
+    override fun onResume() {
+        super.onResume()
+        startTimeLeft()
+    }
+
      override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
          // Collect data from the intent and use it
          game.nextLevel()
          updateTextViews()
-         startTimeLeft()
          super.onActivityResult(requestCode, resultCode, data)
     }
 
