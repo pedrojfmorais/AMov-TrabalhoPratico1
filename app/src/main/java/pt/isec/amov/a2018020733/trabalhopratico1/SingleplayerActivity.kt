@@ -163,6 +163,9 @@ class SingleplayerActivity : AppCompatActivity(), GestureDetector.OnGestureListe
 
         binding.btnPrevious.isEnabled = game.getCurrentEquationNumber() != 1
 
+        binding.btnNext.isEnabled =
+            game.getCurrentBoard().maxValueFound || game.getCurrentBoard().secondMaxValueFound
+
         if (game.getCurrentEquationNumber() == NUMBER_EQUATIONS_LEVEL)
             binding.btnNext.text = getString(R.string.finishLevel)
         else
