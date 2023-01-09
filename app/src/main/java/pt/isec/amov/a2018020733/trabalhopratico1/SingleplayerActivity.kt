@@ -8,6 +8,7 @@ import android.util.Log
 import android.view.GestureDetector
 import android.view.MotionEvent
 import android.widget.TextView
+import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.ActionBar
 import androidx.appcompat.app.AppCompatActivity
@@ -25,9 +26,10 @@ import kotlin.math.abs
 class SingleplayerActivity : AppCompatActivity(), GestureDetector.OnGestureListener {
 
     lateinit var binding: SingleplayerBinding
-    private val game : Game by viewModels()
+    private val game: Game by viewModels()
     private lateinit var auth: FirebaseAuth
-    lateinit var timer : Timer
+    lateinit var timer: Timer
+    var tempoBack = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -49,8 +51,7 @@ class SingleplayerActivity : AppCompatActivity(), GestureDetector.OnGestureListe
                 startActivityForResult(intent, 1)
 
                 timer.cancel()
-            }
-            else
+            } else
                 game.nextEquation()
 
             updateTextViews()
@@ -71,29 +72,29 @@ class SingleplayerActivity : AppCompatActivity(), GestureDetector.OnGestureListe
         startTimeLeft()
     }
 
-     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-         // Collect data from the intent and use it
-         game.nextLevel()
-         updateTextViews()
-         super.onActivityResult(requestCode, resultCode, data)
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        // Collect data from the intent and use it
+        game.nextLevel()
+        updateTextViews()
+        super.onActivityResult(requestCode, resultCode, data)
     }
 
-    private fun acabarJogo(){
+    private fun acabarJogo() {
         auth = Firebase.auth
 
         val db = Firebase.firestore
-        val v = auth.currentUser?.email?.let { db.collection(COLLECTION_PATH).document(it)}
+        val v = auth.currentUser?.email?.let { db.collection(COLLECTION_PATH).document(it) }
         db.runTransaction { transaction ->
             val doc = v?.let { transaction.get(it) }
             if (doc?.exists() == true) {
                 val storedPoints = (doc.getLong(COLLECTION_FIELD_POINTS) ?: 0)
 
-                if(game.getPoints() > storedPoints) {
+                if (game.getPoints() > storedPoints) {
                     transaction.update(v, COLLECTION_FIELD_POINTS, game.getPoints())
                     transaction.update(v, COLLECTION_FIELD_TIME_PLAYED, game.getTimePlayed())
                 }
                 null
-            } else{
+            } else {
                 val scores = hashMapOf(
                     COLLECTION_FIELD_POINTS to game.getPoints(),
                     COLLECTION_FIELD_TIME_PLAYED to game.getTimePlayed()
@@ -103,7 +104,7 @@ class SingleplayerActivity : AppCompatActivity(), GestureDetector.OnGestureListe
                         .addOnSuccessListener {
                             Log.i("TAG", "addDataToFirestore: Success")
                         }
-                        .addOnFailureListener { e->
+                        .addOnFailureListener { e ->
                             Log.i("TAG", "addDataToFirestore: ${e.message}")
                         }
                 }
@@ -263,7 +264,7 @@ class SingleplayerActivity : AppCompatActivity(), GestureDetector.OnGestureListe
     private fun startTimeLeft() {
         timer = fixedRateTimer("timeLeftCounter", false, 0L, 1 * 1000) {
             this@SingleplayerActivity.runOnUiThread {
-
+                tempoBack--
                 game.decrementTimeLeft()
                 game.incrementTimePlayed()
 
@@ -272,7 +273,7 @@ class SingleplayerActivity : AppCompatActivity(), GestureDetector.OnGestureListe
             }
 
             //Parar a cena
-            if(game.getTimeLeftLevel() <= 0) {
+            if (game.getTimeLeftLevel() <= 0) {
                 acabarJogo()
                 cancel()
             }
@@ -280,8 +281,15 @@ class SingleplayerActivity : AppCompatActivity(), GestureDetector.OnGestureListe
     }
 
     override fun onBackPressed() {
-        //TODO: confirmação sair
-        acabarJogo()
+        if (tempoBack <= 0) {
+            tempoBack = 5
+            Toast.makeText(
+                applicationContext,
+                getString(R.string.pressBackExit),
+                Toast.LENGTH_SHORT
+            ).show()
+        } else
+            acabarJogo()
     }
 
     // Gestos

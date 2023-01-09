@@ -70,7 +70,5 @@ class LevelTransitionActivity : AppCompatActivity() {
         flagPaused = false
     }
 
-    override fun onBackPressed() {
-        //TODO
-    }
+    override fun onBackPressed() {}
 }

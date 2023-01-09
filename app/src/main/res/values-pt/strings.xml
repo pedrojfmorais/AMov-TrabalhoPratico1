@@ -45,4 +45,5 @@
     <string name="subject">Arquiteturas Móveis\n2022/2023</string>
     <string name="logotipo_isec">Logotipo ISEC</string>
     <string name="credits">Créditos</string>
+    <string name="pressBackExit">Volte a carregar para sair</string>
 </resources>

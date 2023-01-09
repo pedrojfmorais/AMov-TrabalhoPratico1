@@ -45,4 +45,5 @@
     <string name="subject">Mobile Architectures\n2022/2023</string>
     <string name="logotipo_isec">Logotipo ISEC</string>
     <string name="credits">Credits</string>
+    <string name="pressBackExit">Press back again to exit</string>
 </resources>
