@@ -144,7 +144,7 @@ class RegisterActivity : AppCompatActivity() {
             .addOnSuccessListener(this) {
                 showUser(auth.currentUser)
                 updateImageFirebase()
-                val intent = Intent(this, Login::class.java)
+                val intent = Intent(this, LoginActivity::class.java)
                 startActivity(intent)
             }
             .addOnFailureListener(this) {

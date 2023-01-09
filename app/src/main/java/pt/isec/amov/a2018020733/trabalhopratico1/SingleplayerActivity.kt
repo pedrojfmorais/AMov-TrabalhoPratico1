@@ -4,11 +4,16 @@ import android.content.Intent
 import android.graphics.Color
 import android.graphics.Rect
 import android.os.Bundle
+import android.util.Log
 import android.view.GestureDetector
 import android.view.MotionEvent
 import android.widget.TextView
 import androidx.appcompat.app.ActionBar
 import androidx.appcompat.app.AppCompatActivity
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.ktx.Firebase
 import pt.isec.amov.a2018020733.trabalhopratico1.databinding.SingleplayerBinding
 import pt.isec.amov.a2018020733.trabalhopratico1.models.*
 import java.util.*
@@ -16,10 +21,11 @@ import kotlin.concurrent.fixedRateTimer
 import kotlin.math.abs
 
 
-class Singleplayer : AppCompatActivity(), GestureDetector.OnGestureListener {
+class SingleplayerActivity : AppCompatActivity(), GestureDetector.OnGestureListener {
 
     lateinit var binding: SingleplayerBinding
-    lateinit var game : Game
+    private lateinit var game : Game
+    private lateinit var auth: FirebaseAuth
     lateinit var timer : Timer
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -42,7 +48,7 @@ class Singleplayer : AppCompatActivity(), GestureDetector.OnGestureListener {
 
         binding.btnNext.setOnClickListener {
             if (game.getCurrentEquationNumber() == NUMBER_EQUATIONS_LEVEL) {
-                val intent = Intent(this, LevelTransition::class.java)
+                val intent = Intent(this, LevelTransitionActivity::class.java)
                 startActivityForResult(intent, 1)
 
                 timer.cancel()
@@ -64,6 +70,43 @@ class Singleplayer : AppCompatActivity(), GestureDetector.OnGestureListener {
          updateTextViews()
          startTimeLeft()
          super.onActivityResult(requestCode, resultCode, data)
+    }
+
+    private fun acabarJogo(){
+        auth = Firebase.auth
+
+        val db = Firebase.firestore
+        val v = auth.currentUser?.email?.let { db.collection(COLLECTION_PATH).document(it)}
+        db.runTransaction { transaction ->
+            val doc = v?.let { transaction.get(it) }
+            if (doc?.exists() == true) {
+                val storedPoints = (doc.getLong(COLLECTION_FIELD_POINTS) ?: 0)
+
+                if(game.getPoints() > storedPoints) {
+                    transaction.update(v, COLLECTION_FIELD_POINTS, game.getPoints())
+                    transaction.update(v, COLLECTION_FIELD_TIME_PLAYED, game.getTimePlayed())
+                }
+                null
+            } else{
+                val scores = hashMapOf(
+                    COLLECTION_FIELD_POINTS to game.getPoints(),
+                    COLLECTION_FIELD_TIME_PLAYED to game.getTimePlayed()
+                )
+                auth.currentUser?.email?.let {
+                    db.collection(COLLECTION_PATH).document(it).set(scores)
+                        .addOnSuccessListener {
+                            Log.i("TAG", "addDataToFirestore: Success")
+                        }
+                        .addOnFailureListener { e->
+                            Log.i("TAG", "addDataToFirestore: ${e.message}")
+                        }
+                }
+            }
+        }.addOnSuccessListener {
+            Log.i("TAG", "updateDataInFirestoreTrans: Success")
+        }.addOnFailureListener { e ->
+            Log.i("TAG", "updateDataInFirestoreTrans: ${e.message}")
+        }
     }
 
     private fun updateTextViews() {
@@ -212,7 +255,7 @@ class Singleplayer : AppCompatActivity(), GestureDetector.OnGestureListener {
 
     private fun startTimeLeft() {
         timer = fixedRateTimer("timeLeftCounter", false, 0L, 1 * 1000) {
-            this@Singleplayer.runOnUiThread {
+            this@SingleplayerActivity.runOnUiThread {
 
                 game.decrementTimeLeft()
                 game.incrementTimePlayed()
@@ -222,13 +265,16 @@ class Singleplayer : AppCompatActivity(), GestureDetector.OnGestureListener {
             }
 
             //Parar a cena
-            if(game.getTimeLeftLevel() <= 0)
+            if(game.getTimeLeftLevel() <= 0) {
+                acabarJogo()
                 cancel()
+            }
         }
     }
 
     override fun onBackPressed() {
         //TODO: confirmação sair
+        acabarJogo()
         super.onBackPressed()
     }
 

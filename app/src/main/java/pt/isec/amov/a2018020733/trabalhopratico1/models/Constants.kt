@@ -1,6 +1,9 @@
 package pt.isec.amov.a2018020733.trabalhopratico1.models
 
 const val EXTRA_GAME = "GAME_DATA"
+const val COLLECTION_PATH = "TopScoresSingleplayer"
+const val COLLECTION_FIELD_POINTS = "points"
+const val COLLECTION_FIELD_TIME_PLAYED = "timePlayed"
 
 const val DIRECTION_HORIZONTAL = 1
 const val DIRECTION_VERTICAL = 2
@@ -20,4 +23,3 @@ val MAX_NUMBER_USED_IN_EQUATIONS_START = arrayOf(9,99,999)
 
 val OPERATORS_USED_PER_LEVEL = arrayOf(arrayOf("+"), arrayOf("+","-"),
     arrayOf("+","-","x"), arrayOf("+","-","x","/"))
-

@@ -38,4 +38,7 @@
     <string name="time_played">Time Played:</string>
     <string name="nextLevel">Next Level</string>
     <string name="paused">Paused</string>
+    <string name="top_5_players">Top 5 players</string>
+    <string name="top5_1_player">Top 5 - 1 Player</string>
+    <string name="user">"User: "</string>
 </resources>

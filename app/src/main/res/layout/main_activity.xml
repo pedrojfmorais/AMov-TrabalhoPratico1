@@ -25,6 +25,13 @@
                 android:layout_gravity="center"
                 android:text="@string/novo_jogo_singleplayer" />
 
+            <Button
+                android:id="@+id/btnTop5Singleplayer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="@string/top5_1_player" />
+
         </LinearLayout>
 
         <LinearLayout

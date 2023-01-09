@@ -17,7 +17,7 @@ import com.google.firebase.ktx.Firebase
 import pt.isec.amov.a2018020733.trabalhopratico1.databinding.LoginBinding
 
 
-class Login : AppCompatActivity() {
+class LoginActivity : AppCompatActivity() {
 
     lateinit var binding: LoginBinding
 

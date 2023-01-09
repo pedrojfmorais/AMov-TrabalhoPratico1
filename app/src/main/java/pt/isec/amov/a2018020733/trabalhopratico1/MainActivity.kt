@@ -43,8 +43,13 @@ class MainActivity : AppCompatActivity() {
         }
 
         binding.btnSingleplayer.setOnClickListener{
-            val intent = Intent(this, Singleplayer::class.java)
+            val intent = Intent(this, SingleplayerActivity::class.java)
             intent.putExtra(EXTRA_GAME, Game())
+            startActivity(intent)
+        }
+
+        binding.btnTop5Singleplayer.setOnClickListener{
+            val intent = Intent(this, Top5Activity::class.java)
             startActivity(intent)
         }
 
@@ -66,7 +71,7 @@ class MainActivity : AppCompatActivity() {
         showUser(auth.currentUser)
 
         if(auth.currentUser == null) {
-            val intent = Intent(this, Login::class.java)
+            val intent = Intent(this, LoginActivity::class.java)
             startActivity(intent)
         }
     }
@@ -91,7 +96,7 @@ class MainActivity : AppCompatActivity() {
         // as you specify a parent activity in AndroidManifest.xml.
         return when (item.itemId) {
             R.id.action_settings -> {
-                val intent = Intent(this, EditUser::class.java)
+                val intent = Intent(this, EditUserActivity::class.java)
                 startActivity(intent)
                 true
             }

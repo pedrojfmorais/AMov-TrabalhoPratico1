@@ -22,7 +22,7 @@ import pt.isec.amov.a2018020733.trabalhopratico1.models.getTempFilename
 import pt.isec.amov.a2018020733.trabalhopratico1.models.setPic
 import java.io.File
 
-class EditUser : AppCompatActivity() {
+class EditUserActivity : AppCompatActivity() {
 
     companion object {
         private const val PERMISSIONS_REQUEST_CODE = 12345

@@ -8,7 +8,7 @@ import pt.isec.amov.a2018020733.trabalhopratico1.models.TRANSITION_TIME_SECONDS
 import java.util.*
 import kotlin.concurrent.fixedRateTimer
 
-class LevelTransition : AppCompatActivity() {
+class LevelTransitionActivity : AppCompatActivity() {
 
     lateinit var binding: LevelTransitionBinding
     lateinit var timer: Timer
@@ -30,7 +30,7 @@ class LevelTransition : AppCompatActivity() {
         }
 
         timer = fixedRateTimer("timeTransition", false, 0L, 1 * 1000) {
-            this@LevelTransition.runOnUiThread {
+            this@LevelTransitionActivity.runOnUiThread {
                 if (!flagPaused) {
                     --timeLeftTransition
                     binding.tvTimeToNextLevel.text = timeLeftTransition.toString()
